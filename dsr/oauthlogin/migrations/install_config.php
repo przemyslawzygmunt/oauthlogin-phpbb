@@ -44,6 +44,12 @@ class install_config extends migration
             ['config.add', ['auth_oauth_reddit_key', '']],
             ['config.add', ['auth_oauth_reddit_secret', '']],
 
+            // supla cloud
+            ['config.add', ['auth_oauth_suplacloud_key', '']],
+            ['config.add', ['auth_oauth_suplacloud_secret', '']],
+            ['config.add', ['auth_oauth_suplacloud_auth_uri', 'https://cloud.supla.org/oauth/v2/auth']],
+            ['config.add', ['auth_oauth_suplacloud_token_uri', 'https://cloud.supla.org/oauth/v2/token']],
+
             // wordpress
             ['config.add', ['auth_oauth_wordpress_key', '']],
             ['config.add', ['auth_oauth_wordpress_secret', '']],

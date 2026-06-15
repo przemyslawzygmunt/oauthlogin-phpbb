@@ -9,6 +9,7 @@ class ComposerStaticInit715d800bc7ae6a952cc41365d745042d
     public static $files = array (
         '87c83f3e9bcb828d13769f82bfcff850' => __DIR__ . '/../..' . '/oauth/oauth2/service/DiscordExtend.php',
         '21eae3be3a721cd434d6614a581716ab' => __DIR__ . '/../..' . '/oauth/oauth2/service/GitHubExtend.php',
+        '7d11563392407d7adaa48a2057e1f81c' => __DIR__ . '/../..' . '/oauth/oauth2/service/Suplacloud.php',
         'ea98e2d13cdfc6ffb7faa0ac497fb920' => __DIR__ . '/../..' . '/oauth/oauth2/service/WordpressExtend.php',
     );
 

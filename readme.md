@@ -3,7 +3,7 @@
 ![Example of login](docs/assets/example.png)
 
 The intention of this extension is to extend the list of Phpbb OAuth providers.
-At the moment it adds **Github, Discord, Microsoft, Reddit and Wordpress** as oauth providers.
+At the moment it adds **Github, Discord, Microsoft, Reddit, cloud.supla.org and Wordpress** as oauth providers.
 
 This is a public version of my private plugin `dsr/oauth_register` that I developed for use in Indetectables.net.
 
