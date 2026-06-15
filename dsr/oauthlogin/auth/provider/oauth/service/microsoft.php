@@ -11,7 +11,7 @@
 namespace dsr\oauthlogin\auth\provider\oauth\service;
 
 use OAuth\Common\Http\Exception\TokenResponseException;
-use OAuth\OAuth2\Service\Microsoft as MicrosoftService;
+use OAuth\OAuth2\Service\MicrosoftExtend as MicrosoftService;
 use phpbb\auth\provider\oauth\service\base;
 use phpbb\auth\provider\oauth\service\exception;
 use phpbb\config\config;
@@ -43,8 +43,16 @@ class microsoft extends base
     public function get_auth_scope()
     {
         return [
-            'wl.basic',
+            'User.Read',
         ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function get_external_service_class()
+    {
+        return 'MicrosoftExtend';
     }
 
     /**

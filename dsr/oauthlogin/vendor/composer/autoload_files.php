@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     '87c83f3e9bcb828d13769f82bfcff850' => $baseDir . '/oauth/oauth2/service/DiscordExtend.php',
     '21eae3be3a721cd434d6614a581716ab' => $baseDir . '/oauth/oauth2/service/GitHubExtend.php',
+    '81e55f962236e9fce8d5d1fbff3a1c5d' => $baseDir . '/oauth/oauth2/service/MicrosoftExtend.php',
     '7d11563392407d7adaa48a2057e1f81c' => $baseDir . '/oauth/oauth2/service/Suplacloud.php',
     'ea98e2d13cdfc6ffb7faa0ac497fb920' => $baseDir . '/oauth/oauth2/service/WordpressExtend.php',
 );
