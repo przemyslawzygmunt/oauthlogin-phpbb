@@ -51,6 +51,5 @@ services:
     class: dsr\oauthlogin\event\listener
     arguments:
       - '@language'
-      - '@template'
     tags:
       - { name: event.listener }

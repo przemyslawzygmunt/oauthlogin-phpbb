@@ -11,7 +11,6 @@
 namespace dsr\oauthlogin\event;
 
 use phpbb\language\language;
-use phpbb\template\template;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class listener implements EventSubscriberInterface
@@ -20,19 +19,14 @@ class listener implements EventSubscriberInterface
     /* @var language */
     protected $language;
 
-    /* @var template */
-    protected $template;
-
     /**
      * Constructor
      *
      * @param language $language Language object
-     * @param template $template Template object
      */
-    public function __construct(language $language, template $template)
+    public function __construct(language $language)
     {
         $this->language = $language;
-        $this->template = $template;
     }
 
     /**
@@ -44,7 +38,6 @@ class listener implements EventSubscriberInterface
     {
         return [
             'core.acp_board_config_edit_add' => 'acp_board_config_edit_add',
-            'core.login_box_modify_template_data' => 'login_box_modify_template_data',
             'core.user_setup_after' => 'user_setup_after',
         ];
     }
@@ -90,47 +83,6 @@ class listener implements EventSubscriberInterface
 
         $display_vars['vars'] = $this->insert_after_key($display_vars['vars'], 'auth_method', $suplacloud_vars);
         $event['display_vars'] = $display_vars;
-    }
-
-    /**
-     * Move cloud.supla.org to the first OAuth login button position.
-     *
-     * @return void
-     */
-    public function login_box_modify_template_data()
-    {
-        $this->move_oauth_service_first('suplacloud');
-    }
-
-    /**
-     * Move an OAuth service row to the beginning of the login template block.
-     *
-     * @param string $service_name
-     * @return void
-     */
-    protected function move_oauth_service_first($service_name)
-    {
-        $last_row = $this->template->retrieve_block_vars('oauth', ['S_ROW_COUNT']);
-
-        if (!isset($last_row['S_ROW_COUNT'])) {
-            return;
-        }
-
-        for ($i = 0, $count = (int) $last_row['S_ROW_COUNT'] + 1; $i < $count; $i++) {
-            $row = $this->template->retrieve_block_vars('oauth[' . $i . ']', []);
-
-            if (empty($row['REDIRECT_URL']) || strpos($row['REDIRECT_URL'], $service_name) === false) {
-                continue;
-            }
-
-            if ($i === 0) {
-                return;
-            }
-
-            $this->template->alter_block_array('oauth', [], $i, 'delete');
-            $this->template->alter_block_array('oauth', $row, 0, 'insert');
-            return;
-        }
     }
 
     /**
