@@ -1,4 +1,12 @@
 services:
+  auth.provider.oauth.service.suplacloud:
+    class: dsr\oauthlogin\auth\provider\oauth\service\suplacloud
+    arguments:
+      - '@config'
+      - '@request'
+    tags:
+      - { name: auth.provider.oauth.service }
+
   auth.provider.oauth.service.discord:
     class: dsr\oauthlogin\auth\provider\oauth\service\discord
     arguments:
@@ -25,14 +33,6 @@ services:
 
   auth.provider.oauth.service.reddit:
     class: dsr\oauthlogin\auth\provider\oauth\service\reddit
-    arguments:
-      - '@config'
-      - '@request'
-    tags:
-      - { name: auth.provider.oauth.service }
-
-  auth.provider.oauth.service.suplacloud:
-    class: dsr\oauthlogin\auth\provider\oauth\service\suplacloud
     arguments:
       - '@config'
       - '@request'
